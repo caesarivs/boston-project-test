@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
   res.send({
-    message: `Check ${req.body.email} for recovery instructions`
+    message: `Check ${req.body.email} for password recovery instructions`
   });
 });
 
