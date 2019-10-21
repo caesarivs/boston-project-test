@@ -2,14 +2,14 @@ global.fetch = require('node-fetch')
 var express = require('express')
 var logger = require('morgan')
 var models = require('./models')
-var Amplify = require('aws-amplify')
+var Amplify = require('@aws-amplify/core').default
 var aws_exports = require('./aws-exports')
 
 var indexRouter = require('./routes/index')
 var carRouter = require('./routes/cars')
 var driverRouter = require('./routes/drivers')
 
-Amplify.default.configure(aws_exports)
+Amplify.configure(aws_exports)
 
 var app = express()
 

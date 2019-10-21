@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-const { Auth } = require('aws-amplify')
+const Auth = require('@aws-amplify/auth').default
 
 router.get('/', (req, res) => res.send('Nothing to see here )'))
 
