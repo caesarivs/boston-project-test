@@ -60,6 +60,9 @@ typings/
 # next.js build output
 .next
 
+# DB configuration
+config.js
+
 #amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
