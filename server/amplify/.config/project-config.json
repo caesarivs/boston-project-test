@@ -1,0 +1,17 @@
+{
+    "projectName": "boston-project",
+    "version": "2.0",
+    "frontend": "javascript",
+    "javascript": {
+        "framework": "none",
+        "config": {
+            "SourceDir": "",
+            "DistributionDir": "",
+            "BuildCommand": "",
+            "StartCommand": "npm start"
+        }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
+}
