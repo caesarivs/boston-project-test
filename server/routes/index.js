@@ -2,10 +2,10 @@ var express = require('express')
 var router = express.Router()
 const { Auth } = require('aws-amplify')
 
-router.get('/', (req, res) => res.send('Nothing to see here ;)'))
+router.get('/', (req, res) => res.send('Nothing to see here )'))
 
-/* Signup */
-router.post('/signup', (req, res) => {
+/* Sign Up */
+router.post('/register', (req, res) => {
   Auth.signUp({
     username: req.body.email,
     password: req.body.password,
@@ -15,22 +15,32 @@ router.post('/signup', (req, res) => {
         'custom:account_type': req.body.account_type
     },
   })
-  .then(data => res.status(201).send(data))
+  .then(data => res.status(200).send(data))
   .catch(err => res.status(500).send(err))
 })
 
-/* Login */
-router.post('/login', function(req, res, next) {
-  res.send({
-    message: `${req.body.email} has logged in`
+/* Sign In */
+router.post('/login', (req, res) => {
+  Auth.signIn({
+    username: req.body.email,
+    password: req.body.password
   })
+  .then(user => res.status(200).send(user))
+  .catch(err => res.status(500).send(err))
+})
+
+/* Sign Out */
+router.post('/logout', (req, res) => {
+  Auth.signOut()
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(500).send(err))
 })
 
 /* Password recovery */
-router.post('/password-recovery', function(req, res, next) {
-  res.send({
-    message: `Check ${req.body.email} for password recovery instructions`
-  })
+router.post('/forgot-password', (req, res) => {
+  Auth.forgotPassword(req.body.email)
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(500).send(err))
 })
 
 module.exports = router
