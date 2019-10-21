@@ -3,7 +3,13 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     account_type: {
       type: DataTypes.ENUM('Admin', 'Manager'),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isIn: {
+          args: [['Admin', 'Manager']],
+          msg: "Must be 'Admin' or 'Manager'"
+        }
+      }
     },
     name: {
       type: DataTypes.STRING,
@@ -12,7 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        isEmail: {
+          msg: "Not a valid email"
+        }
+      }
     }
   }, {});
   return User;
