@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"bostonprojectc4bc0159": {
+		"bostonprojectteste9e616c8": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []

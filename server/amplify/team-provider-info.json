@@ -1,18 +1,18 @@
 {
-    "test": {
+    "dev": {
         "awscloudformation": {
-            "AuthRoleName": "boston-project-test-20191021013542-authRole",
-            "UnauthRoleArn": "arn:aws:iam::281497860894:role/boston-project-test-20191021013542-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::281497860894:role/boston-project-test-20191021013542-authRole",
+            "AuthRoleName": "boston-project-test-dev-20191021050344-authRole",
+            "UnauthRoleArn": "arn:aws:iam::281497860894:role/boston-project-test-dev-20191021050344-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::281497860894:role/boston-project-test-dev-20191021050344-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "boston-project-test-20191021013542-deployment",
-            "UnauthRoleName": "boston-project-test-20191021013542-unauthRole",
-            "StackName": "boston-project-test-20191021013542",
-            "StackId": "arn:aws:cloudformation:us-east-1:281497860894:stack/boston-project-test-20191021013542/0187e800-f3cd-11e9-b9f0-0a933e7926f6"
+            "DeploymentBucketName": "boston-project-test-dev-20191021050344-deployment",
+            "UnauthRoleName": "boston-project-test-dev-20191021050344-unauthRole",
+            "StackName": "boston-project-test-dev-20191021050344",
+            "StackId": "arn:aws:cloudformation:us-east-1:281497860894:stack/boston-project-test-dev-20191021050344/111d9900-f3ea-11e9-8a05-0a5c603a1bba"
         },
         "categories": {
             "auth": {
-                "bostonprojectc4bc0159": {}
+                "bostonprojectteste9e616c8": {}
             }
         }
     }
