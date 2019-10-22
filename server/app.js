@@ -23,10 +23,12 @@ app.use('/', indexRouter)
 app.use('/cars', carRouter)
 app.use('/drivers', driverRouter)
 
-models.sequelize.sync().then(function() {
-  console.log('DB OK')
-}).catch(function(err) {
-  console.log(err)
+models.sequelize.sync()
+  .then(function() {
+    console.log('DB OK')
+  })
+  .catch(function(err) {
+    console.log(err)
 })
 
 module.exports = app
