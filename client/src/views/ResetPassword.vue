@@ -3,6 +3,9 @@
     <form class="form-box">
       <h2>Reset password</h2>
       <div class="form-group">
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" v-model="email" required>
+      </div>
+      <div class="form-group">
         <input type="text" class="form-control" id="code" placeholder="Enter your code" v-model="code" required>
       </div>
       <div class="form-group">
@@ -16,15 +19,25 @@
 </template>
 
 <script>
+import AuthenticationService from '@/services/AuthenticationService'
+
 export default {
   data () {
     return {
+      email: '',
       code: '',
       password: ''
     }
   },
   methods: {
-    reset () {}
+    async reset () {
+      const response = await AuthenticationService.reset({
+        email: this.email,
+        code: this.code,
+        password: this.password
+      })
+      console.log(response.data)
+    }
   }
 }
 </script>

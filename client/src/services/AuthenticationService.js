@@ -12,5 +12,14 @@ export default {
   },
   login (credentials) {
     return Api().post('login', credentials)
+  },
+  logout (credentials) {
+    return Api().post('logout', credentials)
+  },
+  recover (credentials) {
+    return Api().post('recover-password', credentials)
+  },
+  reset (credentials) {
+    return Api().post('reset-password', credentials)
   }
 }

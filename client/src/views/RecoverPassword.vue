@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import AuthenticationService from '@/services/AuthenticationService'
+
 export default {
   data () {
     return {
@@ -20,7 +22,12 @@ export default {
     }
   },
   methods: {
-    recover () {}
+    async recover () {
+      const response = await AuthenticationService.recover({
+        email: this.email
+      })
+      console.log(response.data)
+    }
   }
 }
 </script>

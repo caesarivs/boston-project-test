@@ -51,18 +51,15 @@ router.post('/logout', (req, res) => {
 })
 
 /* Password recovery */
-router.post('/forgot-password', (req, res) => {
+router.post('/recover-password', (req, res) => {
   Auth.forgotPassword(req.body.email)
     .then(data => res.status(200).send(data))
     .catch(err => res.status(500).send(err))
 })
 router.post('/reset-password', (req, res) => {
-  Auth.currentAuthenticatedUser()
-    .then(user => {
-        return Auth.changePassword(req.body.email, req.body.oldPassword, req.body.newPassword)
-    })
+  Auth.forgotPasswordSubmit(req.body.email, req.body.code, req.body.password)
     .then(data => res.status(200).send(data))
-    .catch(err => res.status(500).send(err))
+    .catch(err => res.status(200).send(err))
 })
 
 module.exports = router
