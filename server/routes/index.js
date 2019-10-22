@@ -19,6 +19,20 @@ router.post('/register', (req, res) => {
   .catch(err => res.status(500).send(err))
 })
 
+/* Confirm signup */
+router.post('/confirm', (req, res)  => {
+  Auth.confirmSignUp(req.body.email, req.body.code, {
+    forceAliasCreation: true
+  })
+  .then(data => res.status(200).send(data))
+  .catch(err => res.status(500).send(err))
+})
+router.post('/resend', (req, res) => {
+  Auth.resendSignUp(req.body.email)
+    .then(() => res.status(200).send('code resent successfully'))
+    .catch(err => res.status(500).send(err))
+})
+
 /* Sign In */
 router.post('/login', (req, res) => {
   Auth.signIn({
@@ -39,6 +53,14 @@ router.post('/logout', (req, res) => {
 /* Password recovery */
 router.post('/forgot-password', (req, res) => {
   Auth.forgotPassword(req.body.email)
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(500).send(err))
+})
+router.post('/reset-password', (req, res) => {
+  Auth.currentAuthenticatedUser()
+    .then(user => {
+        return Auth.changePassword(req.body.email, req.body.oldPassword, req.body.newPassword)
+    })
     .then(data => res.status(200).send(data))
     .catch(err => res.status(500).send(err))
 })
