@@ -6,5 +6,8 @@ export default {
   },
   confirm (credentials) {
     return Api().post('confirm', credentials)
+  },
+  resend (credentials) {
+    return Api().post('resend', credentials)
   }
 }
