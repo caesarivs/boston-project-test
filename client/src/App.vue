@@ -8,10 +8,10 @@
       <div class="navbar-collapse collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/drivers">Drivers</router-link>
+            <router-link class="nav-link" to="/cars">Cars</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/cars">Cars</router-link>
+            <router-link class="nav-link" to="/drivers">Drivers</router-link>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -42,5 +42,27 @@
 }
 .container {
   margin: 25px auto;
+}
+.form-box {
+  width: 340px;
+  margin: 50px auto;
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.form-box h2 {
+  margin: 0px 0px 15px;
+}
+.form-control, .btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+.btn {
+  font-size: 15px;
+  font-weight: bold;
+}
+.clearfix {
+  font-size: 12px;
 }
 </style>
