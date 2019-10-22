@@ -1,6 +1,7 @@
 global.fetch = require('node-fetch')
 var express = require('express')
 var logger = require('morgan')
+var cors = require('cors')
 var models = require('./models')
 var Amplify = require('@aws-amplify/core').default
 var aws_exports = require('./aws-exports')
@@ -15,6 +16,7 @@ var app = express()
 
 app.use(logger('dev'))
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/', indexRouter)
