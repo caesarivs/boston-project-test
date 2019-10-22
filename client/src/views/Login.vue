@@ -1,49 +1,44 @@
 <template>
   <div class="login">
-    <form>
-      <h2>Login</h2>
+    <form class="form-box">
+      <h2>Log in</h2>
       <div class="form-group">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="email" required>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" v-model="email" required>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" id="password" placeholder="Enter password" v-model="password" required>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" v-model="password" required>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" @click="submit">Login</button>
+        <button class="btn btn-primary btn-block" @click="login">Login</button>
       </div>
       <div class="clearfix">
-        <router-link to="/forgot-password">Forgot password?</router-link>
+        Forgot your password? <router-link to="/recover-password">Recover password</router-link>
+      </div>
+      <div class="clearfix">
+        No account? <router-link to="/register">Register</router-link>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-export default {
+import AuthenticationService from '@/services/AuthenticationService'
 
+export default {
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    async login () {
+      const response = await AuthenticationService.login({
+        email: this.email,
+        password: this.password
+      })
+      console.log(response.data)
+    }
+  }
 }
 </script>
-
-<style>
-  .login {
-    width: 340px;
-    margin: 50px auto;
-  }
-  .login form {
-    margin-bottom: 15px;
-    background: #f7f7f7;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 30px;
-  }
-  .login h2 {
-    margin: 0 0 15px;
-  }
-  .form-control, .btn {
-    min-height: 38px;
-    border-radius: 2px;
-  }
-  .btn {
-    font-size: 15px;
-    font-weight: bold;
-  }
-</style>

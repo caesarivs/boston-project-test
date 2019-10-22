@@ -9,5 +9,8 @@ export default {
   },
   resend (credentials) {
     return Api().post('resend', credentials)
+  },
+  login (credentials) {
+    return Api().post('login', credentials)
   }
 }
