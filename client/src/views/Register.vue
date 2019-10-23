@@ -3,13 +3,13 @@
     <form class="form-box">
       <h2>Register</h2>
       <div class="form-group">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="admin" value="Admin" v-model="account_type">
-          <label class="form-check-label" for="admin">Admin</label>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input class="custom-control-input" type="radio" id="admin" value="Admin" v-model="account_type">
+          <label class="custom-control-label" for="admin">Admin</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" id="manager" value="Manager" v-model="account_type">
-          <label class="form-check-label" for="manager">Manager</label>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input class="custom-control-input" type="radio" id="manager" value="Manager" v-model="account_type">
+          <label class="custom-control-label" for="manager">Manager</label>
         </div>
       </div>
       <div class="form-group">
