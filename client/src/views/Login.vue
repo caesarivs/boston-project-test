@@ -9,7 +9,7 @@
         <input type="password" class="form-control" id="password" placeholder="Enter your password" v-model="password" required>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block" @click="login">Login</button>
+        <button type="button" class="btn btn-primary btn-block" @click="login">Login</button>
       </div>
       <div class="clearfix">
         Forgot your password? <router-link to="/recover-password">Recover password</router-link>
@@ -27,7 +27,7 @@ import AuthService from '@/services/Auth'
 export default {
   data () {
     return {
-      email: '',
+      email: this.$route.params.email,
       password: ''
     }
   },

@@ -9,7 +9,7 @@
         <input type="number" class="form-control" id="code" placeholder="Enter your code" v-model="code" required>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block" @click="confirm">Confirm</button>
+        <button type="button" class="btn btn-primary btn-block" @click="confirm">Confirm</button>
       </div>
       <div class="clearfix">
         Lost the code?<br>

@@ -11,8 +11,8 @@
       <div class="form-group">
         <input type="password" class="form-control" id="password" placeholder="Enter your new password" v-model="password" required>
       </div>
-      <div>
-        <button class="btn btn-primary btn-block" @click="reset">Reset</button>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" @click="reset">Reset</button>
       </div>
     </form>
   </div>
@@ -24,13 +24,13 @@ import AuthService from '@/services/Auth'
 export default {
   data () {
     return {
-      email: '',
+      email: this.$route.params.email,
       code: '',
       password: ''
     }
   },
   methods: {
-    async recover () {
+    async reset () {
       try {
         await AuthService.reset({
           email: this.email,

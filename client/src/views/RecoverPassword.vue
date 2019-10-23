@@ -6,7 +6,7 @@
         <input type="email" class="form-control" id="email" placeholder="Enter your email" v-model="email" required>
       </div>
       <div>
-        <button class="btn btn-primary btn-block" @click="recover">Recover</button>
+        <button type="button" class="btn btn-primary btn-block" @click="recover">Recover</button>
       </div>
     </form>
   </div>
@@ -18,7 +18,7 @@ import AuthService from '@/services/Auth'
 export default {
   data () {
     return {
-      email: ''
+      email: this.$route.params.email
     }
   },
   methods: {
