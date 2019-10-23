@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthService from '@/services/Auth'
 
 export default {
   data () {
@@ -23,10 +23,19 @@ export default {
   },
   methods: {
     async recover () {
-      const response = await AuthenticationService.recover({
-        email: this.email
-      })
-      console.log(response.data)
+      try {
+        await AuthService.recover({
+          email: this.email
+        })
+        this.$router.push({
+          name: 'reset-password',
+          params: {
+            email: this.email
+          }
+        })
+      } catch (error) {
+        throw error
+      }
     }
   }
 }

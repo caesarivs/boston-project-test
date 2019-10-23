@@ -12,35 +12,49 @@
         <button class="btn btn-primary btn-block" @click="confirm">Confirm</button>
       </div>
       <div class="clearfix">
-        Lost the code? <a href="#" @click="resend">Resend</a>
+        Lost the code?<br>
+        <button type="button" class="btn btn-link" @click="resend">Resend</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthService from '@/services/Auth'
 
 export default {
   data () {
     return {
-      email: '',
+      email: this.$route.params.email,
       code: ''
     }
   },
   methods: {
     async confirm () {
-      const response = await AuthenticationService.confirm({
-        email: this.email,
-        code: this.code
-      })
-      console.log(response.data)
+      try {
+        await AuthService.confirm({
+          email: this.email,
+          code: this.code
+        })
+        this.$router.push({
+          name: 'login',
+          params: {
+            email: this.email
+          }
+        })
+      } catch (error) {
+        throw error
+      }
     },
     async resend () {
-      const response = await AuthenticationService.resend({
-        email: this.email
-      })
-      console.log(response.data)
+      try {
+        await AuthService.resend({
+          email: this.email
+        })
+        alert('Verification code sent successfully')
+      } catch (error) {
+        throw error
+      }
     }
   }
 }

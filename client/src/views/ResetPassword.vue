@@ -6,7 +6,7 @@
         <input type="email" class="form-control" id="email" placeholder="Enter your email" v-model="email" required>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" id="code" placeholder="Enter your code" v-model="code" required>
+        <input type="number" class="form-control" id="code" placeholder="Enter your code" v-model="code" required>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="password" placeholder="Enter your new password" v-model="password" required>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthService from '@/services/Auth'
 
 export default {
   data () {
@@ -30,13 +30,22 @@ export default {
     }
   },
   methods: {
-    async reset () {
-      const response = await AuthenticationService.reset({
-        email: this.email,
-        code: this.code,
-        password: this.password
-      })
-      console.log(response.data)
+    async recover () {
+      try {
+        await AuthService.reset({
+          email: this.email,
+          code: this.code,
+          password: this.password
+        })
+        this.$router.push({
+          name: 'login',
+          params: {
+            email: this.email
+          }
+        })
+      } catch (error) {
+        throw error
+      }
     }
   }
 }

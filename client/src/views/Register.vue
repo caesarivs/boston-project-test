@@ -22,7 +22,7 @@
         <input type="password" class="form-control" id="password" placeholder="Enter your password" v-model="password" required>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block" @click="register">Register</button>
+        <button type="button" class="btn btn-primary btn-block" @click="register">Register</button>
       </div>
       <div class="clearfix">
         Have an account? <router-link to="/login">Log in</router-link>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthService from '@/services/Auth'
 
 export default {
   data () {
@@ -45,13 +45,22 @@ export default {
   },
   methods: {
     async register () {
-      const response = await AuthenticationService.register({
-        account_type: this.account_type,
-        name: this.name,
-        email: this.email,
-        password: this.password
-      })
-      console.log(response.data)
+      try {
+        await AuthService.register({
+          account_type: this.account_type,
+          name: this.name,
+          email: this.email,
+          password: this.password
+        })
+        this.$router.push({
+          name: 'confirm',
+          params: {
+            email: this.email
+          }
+        })
+      } catch (error) {
+        throw error
+      }
     }
   }
 }

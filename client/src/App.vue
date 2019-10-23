@@ -58,9 +58,13 @@
   min-height: 38px;
   border-radius: 2px;
 }
-.btn {
+.btn-block {
   font-size: 15px;
   font-weight: bold;
+}
+.btn-link {
+  padding: 0;
+  font-size: 12px;
 }
 .clearfix {
   font-size: 12px;

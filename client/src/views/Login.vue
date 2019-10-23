@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import AuthService from '@/services/Auth'
 
 export default {
   data () {
@@ -33,11 +33,17 @@ export default {
   },
   methods: {
     async login () {
-      const response = await AuthenticationService.login({
-        email: this.email,
-        password: this.password
-      })
-      console.log(response.data)
+      try {
+        await AuthService.login({
+          email: this.email,
+          password: this.password
+        })
+        this.$router.push({
+          name: 'home'
+        })
+      } catch (error) {
+        throw error
+      }
     }
   }
 }

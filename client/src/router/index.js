@@ -11,51 +11,51 @@ import Drivers from '@/views/Drivers.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
-  },
-  {
-    path: '/confirm',
-    name: 'confirm',
-    component: Confirm
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
-  {
-    path: '/recover-password',
-    name: 'recover-password',
-    component: RecoverPassword
-  },
-  {
-    path: '/reset-password',
-    name: 'reset-password',
-    component: ResetPassword
-  },
-  {
-    path: '/cars',
-    name: 'cars',
-    component: Cars
-  },
-  {
-    path: '/drivers',
-    name: 'drivers',
-    component: Drivers
-  }
-]
-
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/confirm',
+      name: 'confirm',
+      component: Confirm
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/recover-password',
+      name: 'recover-password',
+      component: RecoverPassword
+    },
+    {
+      path: '/reset-password',
+      name: 'reset-password',
+      component: ResetPassword
+    },
+    {
+      path: '/cars',
+      name: 'cars',
+      component: Cars
+    },
+    {
+      path: '/drivers',
+      name: 'drivers',
+      component: Drivers
+    }
+  ]
 })
 
 export default router
