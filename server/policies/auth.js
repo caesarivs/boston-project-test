@@ -9,8 +9,8 @@ const register = async (req, res, next) => {
   })
   
   try {
-    // const value = 
-    await schema.validateAsync(req.body)
+    const value = await schema.validateAsync(req.body)
+    next()
   } catch (error) {
     switch (error.details[0].context.key) {
       case 'account_type':
@@ -39,8 +39,6 @@ const register = async (req, res, next) => {
       })
     }
   }
-  
-  next()
 }
 
 module.exports = {
