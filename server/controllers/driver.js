@@ -6,11 +6,11 @@ const createDriver = async (req, res) => {
       name: req.body.name,
       birthdate: req.body.birthdate
     })
-    return res.status(201).json({
+    return res.status(201).send({
       driver
     })
   } catch (error) {
-    return res.status(500).json({
+    return res.status(500).send({
       error: error.message
     })
   }
@@ -19,7 +19,7 @@ const createDriver = async (req, res) => {
 const getAllDrivers = async (req, res) => {
   try {
     const drivers = await Driver.findAll()
-    return res.status(200).json({
+    return res.status(200).send({
       drivers
     })
   } catch (error) {
@@ -36,7 +36,7 @@ const getDriverById = async (req, res) => {
       }
     })
     if (driver) {
-      return res.status(200).json({
+      return res.status(200).send({
         driver
       })
     }
@@ -63,7 +63,7 @@ const updateDriver = async (req, res) => {
           id: driverId
         }
       })
-      return res.status(200).json({
+      return res.status(200).send({
         driver: updatedDriver
       })
     }

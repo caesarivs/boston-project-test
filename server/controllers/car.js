@@ -6,11 +6,11 @@ const createCar = async (req, res) => {
       car_plate: req.body.car_plate,
       car_model: req.body.car_model
     })
-    return res.status(201).json({
+    return res.status(201).send({
       car
     })
   } catch (error) {
-    return res.status(500).json({
+    return res.status(500).send({
       error: error.message
     })
   }
@@ -19,7 +19,7 @@ const createCar = async (req, res) => {
 const getAllCars = async (req, res) => {
   try {
     const cars = await Car.findAll()
-    return res.status(200).json({
+    return res.status(200).send({
       cars
     })
   } catch (error) {
@@ -36,7 +36,7 @@ const getCarById = async (req, res) => {
       }
     })
     if (car) {
-      return res.status(200).json({
+      return res.status(200).send({
         car
       })
     }
@@ -63,7 +63,7 @@ const updateCar = async (req, res) => {
           id: carId
         }
       })
-      return res.status(200).json({
+      return res.status(200).send({
         car: updatedCar
       })
     }
