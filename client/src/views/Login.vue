@@ -34,12 +34,16 @@ export default {
   methods: {
     async login () {
       try {
-        await AuthService.login({
+        const response = await AuthService.login({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setIdToken', response.data.signInUserSession.idToken.jwtToken)
+        this.$store.dispatch('setAccessToken', response.data.signInUserSession.accessToken.jwtToken)
+        this.$store.dispatch('setRefreshToken', response.data.signInUserSession.refreshToken.token)
+        this.$store.dispatch('setUserAttributes', response.data.attributes)
         this.$router.push({
-          name: 'home'
+          name: 'cars'
         })
       } catch (error) {
         throw error

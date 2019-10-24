@@ -12,8 +12,8 @@ const resend = (credentials) => {
 const login = (credentials) => {
   return axios.post('login', credentials)
 }
-const logout = (credentials) => {
-  return axios.post('logout', credentials)
+const logout = () => {
+  return axios.post('logout')
 }
 const recover = (credentials) => {
   return axios.post('recover-password', credentials)
