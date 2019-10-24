@@ -10,9 +10,7 @@ const createDriver = async (req, res) => {
       driver
     })
   } catch (error) {
-    return res.status(500).send({
-      error: error.message
-    })
+    return res.status(500).send(error.message)
   }
 }
 
@@ -82,9 +80,9 @@ const deleteDriver = async (req, res) => {
       }
     })
     if (deleted) {
-      return res.status(204).send("Driver deleted")
+      return res.status(204).send('Driver deleted')
     }
-    throw new Error("Driver not found")
+    throw new Error('Driver not found')
   } catch (error) {
     return res.status(500).send(error.message)
   }

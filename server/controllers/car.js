@@ -10,9 +10,7 @@ const createCar = async (req, res) => {
       car
     })
   } catch (error) {
-    return res.status(500).send({
-      error: error.message
-    })
+    return res.status(500).send(error.message)
   }
 }
 
@@ -82,9 +80,9 @@ const deleteCar = async (req, res) => {
       }
     })
     if (deleted) {
-      return res.status(204).send("Car deleted")
+      return res.status(204).send('Car deleted')
     }
-    throw new Error("Car not found")
+    throw new Error('Car not found')
   } catch (error) {
     return res.status(500).send(error.message)
   }
