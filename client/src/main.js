@@ -5,7 +5,7 @@ import store from './store'
 import axios from 'axios'
 import 'bootstrap'
 
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://ec2-54-166-181-12.compute-1.amazonaws.com:3000'
 
 Vue.config.productionTip = false
 
