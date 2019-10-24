@@ -4,6 +4,11 @@ const getAllCars = () => {
   return axios.get('cars')
 }
 
+const createCar = (values) => {
+  return axios.post('cars', values)
+}
+
 export default {
-  getAllCars
+  getAllCars,
+  createCar
 }

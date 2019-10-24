@@ -38,10 +38,14 @@ export default {
           email: this.email,
           password: this.password
         })
-        this.$store.dispatch('setIdToken', response.data.signInUserSession.idToken.jwtToken)
-        this.$store.dispatch('setAccessToken', response.data.signInUserSession.accessToken.jwtToken)
-        this.$store.dispatch('setRefreshToken', response.data.signInUserSession.refreshToken.token)
-        this.$store.dispatch('setUserAttributes', response.data.attributes)
+        // const idToken = response.data.signInUserSession.idToken.jwtToken
+        // const accessToken = response.data.signInUserSession.accessToken.jwtToken
+        // const refreshToken = response.data.signInUserSession.refreshToken.token
+        const userAttributes = response.data.attributes
+        // this.$store.dispatch('setIdToken', idToken)
+        // this.$store.dispatch('setAccessToken', accessToken)
+        // this.$store.dispatch('setRefreshToken', refreshToken)
+        this.$store.dispatch('setUserAttributes', userAttributes)
         this.$router.push({
           name: 'cars'
         })

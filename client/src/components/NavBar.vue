@@ -38,9 +38,9 @@ export default {
     async logout () {
       try {
         await AuthService.logout({})
-        this.$store.dispatch('setIdToken', null)
-        this.$store.dispatch('setAccessToken', null)
-        this.$store.dispatch('setRefreshToken', null)
+        // this.$store.dispatch('setIdToken', null)
+        // this.$store.dispatch('setAccessToken', null)
+        // this.$store.dispatch('setRefreshToken', null)
         this.$store.dispatch('setUserAttributes', null)
         this.$router.push({
           name: 'home'

@@ -9,7 +9,7 @@ const register = async (req, res, next) => {
   })
   
   try {
-    const value = await schema.validateAsync(req.body)
+    await schema.validateAsync(req.body)
     next()
   } catch (error) {
     switch (error.details[0].context.key) {
